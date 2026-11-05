@@ -178,25 +178,25 @@
         "events"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451247,
       "order": 6000,
       "subtasks": [
         {
           "id": "itujk60gb",
           "text": "event.preventDefault()",
-          "completed": false
+          "completed": true
         },
         {
           "id": "dgnkfk88l",
           "text": "Read the form values and call addBookToLibrary",
-          "completed": false
+          "completed": true
         },
         {
           "id": "8zioocnz7",
           "text": "displayBooks(), form.reset(), dialog.close()",
-          "completed": false
+          "completed": true
         }
       ]
     },

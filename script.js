@@ -85,3 +85,19 @@ cancelButton.addEventListener("click", () => {
   bookForm.reset();
   bookDialog.close();
 });
+
+bookForm.addEventListener("submit", (event) => {
+  event.preventDefault(); // stop the browser from sending the form to a server
+
+  const formData = new FormData(bookForm);
+  addBookToLibrary(
+    formData.get("title").trim(),
+    formData.get("author").trim(),
+    Number(formData.get("pages")),
+    formData.get("read") === "on"
+  );
+
+  displayBooks();
+  bookForm.reset();
+  bookDialog.close();
+});
