@@ -20,6 +20,19 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Creates a Book from the given details and stores it in myLibrary.
+function addBookToLibrary(title, author, pages, read) {
+  const book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  return book;
+}
+
+// Sample books so there is something to display during development.
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+addBookToLibrary("Dune", "Frank Herbert", 412, false);
+addBookToLibrary("1984", "George Orwell", 328, true);
+addBookToLibrary("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
+
 // ---------- Display ----------
 
 // ---------- Events ----------

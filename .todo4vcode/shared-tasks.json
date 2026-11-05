@@ -79,25 +79,25 @@
         "data"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451244,
       "order": 3000,
       "subtasks": [
         {
           "id": "ldczfe2fb",
           "text": "addBookToLibrary(title, author, pages, read)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "mws6f6fcb",
           "text": "Push the new Book into myLibrary",
-          "completed": false
+          "completed": true
         },
         {
           "id": "rtp4sr6qq",
           "text": "Seed 3-4 sample books",
-          "completed": false
+          "completed": true
         }
       ]
     },
