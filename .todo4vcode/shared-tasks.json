@@ -147,25 +147,25 @@
         "dom"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451246,
       "order": 5000,
       "subtasks": [
         {
           "id": "smorjjyzg",
           "text": "Form fields: title, author, pages, read checkbox (required attributes)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "zs4a8vqwu",
           "text": "New Book button calls dialog.showModal()",
-          "completed": false
+          "completed": true
         },
         {
           "id": "122mahnax",
           "text": "Cancel / close button",
-          "completed": false
+          "completed": true
         }
       ]
     },

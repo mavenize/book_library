@@ -71,3 +71,17 @@ function displayBooks() {
 displayBooks();
 
 // ---------- Events ----------
+
+const newBookButton = document.querySelector("#new-book-btn");
+const bookDialog = document.querySelector("#book-dialog");
+const bookForm = document.querySelector("#book-form");
+const cancelButton = document.querySelector("#cancel-btn");
+
+newBookButton.addEventListener("click", () => {
+  bookDialog.showModal();
+});
+
+cancelButton.addEventListener("click", () => {
+  bookForm.reset();
+  bookDialog.close();
+});

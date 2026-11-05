@@ -17,7 +17,35 @@
       <section id="library" class="library" aria-label="Books"></section>
     </main>
 
-    <!-- New Book form goes here (Task 5) -->
-    <dialog id="book-dialog"></dialog>
+    <dialog id="book-dialog" aria-labelledby="book-dialog-title">
+      <form id="book-form" class="book-form">
+        <h2 id="book-dialog-title">Add a new book</h2>
+
+        <label class="field">
+          <span>Title</span>
+          <input type="text" name="title" required autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>Author</span>
+          <input type="text" name="author" required autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span>Pages</span>
+          <input type="number" name="pages" min="1" step="1" required />
+        </label>
+
+        <label class="field field-checkbox">
+          <input type="checkbox" name="read" />
+          <span>I have read this book</span>
+        </label>
+
+        <div class="form-actions">
+          <button type="button" id="cancel-btn" class="btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add book</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
