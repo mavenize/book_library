@@ -48,25 +48,25 @@
         "data"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451243,
       "order": 2000,
       "subtasks": [
         {
           "id": "wnmb3s0nj",
           "text": "const myLibrary = []",
-          "completed": false
+          "completed": true
         },
         {
           "id": "1fh2u9veb",
           "text": "Book(title, author, pages, read) with a new.target guard",
-          "completed": false
+          "completed": true
         },
         {
           "id": "kt943hja0",
           "text": "this.id = crypto.randomUUID()",
-          "completed": false
+          "completed": true
         }
       ]
     },
