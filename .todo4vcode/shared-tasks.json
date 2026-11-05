@@ -110,30 +110,30 @@
         "dom"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451245,
       "order": 4000,
       "subtasks": [
         {
           "id": "8bzmcl6mh",
           "text": "Clear the #library container",
-          "completed": false
+          "completed": true
         },
         {
           "id": "bzp85v2m6",
           "text": "Build a card per book (title, author, pages, status)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "bkfcqze9y",
           "text": "Set data-id on each card",
-          "completed": false
+          "completed": true
         },
         {
           "id": "vt5ga26bh",
           "text": "Call displayBooks() on load",
-          "completed": false
+          "completed": true
         }
       ]
     },

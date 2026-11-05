@@ -35,4 +35,39 @@ addBookToLibrary("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
 
 // ---------- Display ----------
 
+const libraryContainer = document.querySelector("#library");
+
+// Builds the card element for a single book. Reads data only; never mutates it.
+function createBookCard(book) {
+  const card = document.createElement("article");
+  card.className = "card";
+  card.dataset.id = book.id; // links this element to its Book object
+
+  const title = document.createElement("h2");
+  title.className = "card-title";
+  title.textContent = book.title;
+
+  const author = document.createElement("p");
+  author.className = "card-meta";
+  author.textContent = `by ${book.author}`;
+
+  const pages = document.createElement("p");
+  pages.className = "card-meta";
+  pages.textContent = `${book.pages} pages`;
+
+  const status = document.createElement("p");
+  status.className = `card-status ${book.read ? "is-read" : "is-unread"}`;
+  status.textContent = book.read ? "Read" : "Not read yet";
+
+  card.append(title, author, pages, status);
+  return card;
+}
+
+// Re-renders the whole library from myLibrary.
+function displayBooks() {
+  libraryContainer.replaceChildren(...myLibrary.map(createBookCard));
+}
+
+displayBooks();
+
 // ---------- Events ----------
