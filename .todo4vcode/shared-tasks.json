@@ -1,0 +1,338 @@
+{
+  "format": "todo4vcode-shared-tasks",
+  "version": "1.0.0",
+  "tasks": [
+    {
+      "id": "qy00besta",
+      "text": "Set up basic HTML/CSS structure",
+      "description": "Create the index.html skeleton, styles.css base styles, and the script.js stub.",
+      "tags": [
+        "html",
+        "css",
+        "setup"
+      ],
+      "priority": "Must",
+      "status": "Done",
+      "completed": true,
+      "createdAt": 1793866451242,
+      "order": 1000,
+      "subtasks": [
+        {
+          "id": "i9e2fsg2p",
+          "text": "Create index.html (header + New Book button, #library container, empty dialog)",
+          "completed": true
+        },
+        {
+          "id": "mkkdoarww",
+          "text": "Create styles.css (reset, layout, card grid)",
+          "completed": true
+        },
+        {
+          "id": "g6jhkxn56",
+          "text": "Create script.js and link it with defer",
+          "completed": true
+        },
+        {
+          "id": "mu95eg3qs",
+          "text": "Open in a browser to confirm it loads",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "43uxaezku",
+      "text": "Book constructor + library array",
+      "description": "Create const myLibrary = [] and a Book constructor. Each book gets a unique id from crypto.randomUUID().",
+      "tags": [
+        "js",
+        "data"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451243,
+      "order": 2000,
+      "subtasks": [
+        {
+          "id": "wnmb3s0nj",
+          "text": "const myLibrary = []",
+          "completed": false
+        },
+        {
+          "id": "1fh2u9veb",
+          "text": "Book(title, author, pages, read) with a new.target guard",
+          "completed": false
+        },
+        {
+          "id": "kt943hja0",
+          "text": "this.id = crypto.randomUUID()",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "52lv2ftsw",
+      "text": "addBookToLibrary() function",
+      "description": "Add a separate function, outside the constructor, that creates a Book from its arguments and pushes it into myLibrary.",
+      "tags": [
+        "js",
+        "data"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451244,
+      "order": 3000,
+      "subtasks": [
+        {
+          "id": "ldczfe2fb",
+          "text": "addBookToLibrary(title, author, pages, read)",
+          "completed": false
+        },
+        {
+          "id": "mws6f6fcb",
+          "text": "Push the new Book into myLibrary",
+          "completed": false
+        },
+        {
+          "id": "rtp4sr6qq",
+          "text": "Seed 3-4 sample books",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "rpjguz4ye",
+      "text": "Render books as cards (displayBooks)",
+      "description": "Loop through myLibrary and render each book as a card. Keep display logic separate from data.",
+      "tags": [
+        "js",
+        "dom"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451245,
+      "order": 4000,
+      "subtasks": [
+        {
+          "id": "8bzmcl6mh",
+          "text": "Clear the #library container",
+          "completed": false
+        },
+        {
+          "id": "bzp85v2m6",
+          "text": "Build a card per book (title, author, pages, status)",
+          "completed": false
+        },
+        {
+          "id": "bkfcqze9y",
+          "text": "Set data-id on each card",
+          "completed": false
+        },
+        {
+          "id": "vt5ga26bh",
+          "text": "Call displayBooks() on load",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "vm5hj6dwf",
+      "text": "New Book dialog form",
+      "description": "Add a <dialog> with a form for title, author, pages, and read status, opened by the New Book button.",
+      "tags": [
+        "html",
+        "js",
+        "dom"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451246,
+      "order": 5000,
+      "subtasks": [
+        {
+          "id": "smorjjyzg",
+          "text": "Form fields: title, author, pages, read checkbox (required attributes)",
+          "completed": false
+        },
+        {
+          "id": "zs4a8vqwu",
+          "text": "New Book button calls dialog.showModal()",
+          "completed": false
+        },
+        {
+          "id": "122mahnax",
+          "text": "Cancel / close button",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "530gvzol2",
+      "text": "Handle form submit",
+      "description": "Use event.preventDefault() to stop the default submit, then add the book and re-render.",
+      "tags": [
+        "js",
+        "events"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451247,
+      "order": 6000,
+      "subtasks": [
+        {
+          "id": "itujk60gb",
+          "text": "event.preventDefault()",
+          "completed": false
+        },
+        {
+          "id": "dgnkfk88l",
+          "text": "Read the form values and call addBookToLibrary",
+          "completed": false
+        },
+        {
+          "id": "8zioocnz7",
+          "text": "displayBooks(), form.reset(), dialog.close()",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "q7nqjl9o8",
+      "text": "Remove book button",
+      "description": "Add a Remove button on each card that deletes the book via its data-id.",
+      "tags": [
+        "js",
+        "events"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451248,
+      "order": 7000,
+      "subtasks": [
+        {
+          "id": "wdzkmw7d6",
+          "text": "Remove button on each card",
+          "completed": false
+        },
+        {
+          "id": "41p2ti8a4",
+          "text": "Delegated click listener on #library reads data-id",
+          "completed": false
+        },
+        {
+          "id": "v32eswkxh",
+          "text": "removeBookFromLibrary(id) using findIndex + splice",
+          "completed": false
+        },
+        {
+          "id": "vqtsbtx0n",
+          "text": "Re-render",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "hvs93acnz",
+      "text": "Toggle read status",
+      "description": "Add Book.prototype.toggleRead and a toggle button on each card.",
+      "tags": [
+        "js",
+        "prototype"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451249,
+      "order": 8000,
+      "subtasks": [
+        {
+          "id": "s4rluvmrj",
+          "text": "Book.prototype.toggleRead",
+          "completed": false
+        },
+        {
+          "id": "1rahglqug",
+          "text": "Toggle button on each card",
+          "completed": false
+        },
+        {
+          "id": "276l3p2xg",
+          "text": "Find the book by data-id, toggle it, re-render",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "28lxmzzbi",
+      "text": "Styling polish + manual QA",
+      "description": "Improve the visuals and test the full flow by hand.",
+      "tags": [
+        "css",
+        "qa"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451250,
+      "order": 9000,
+      "subtasks": [
+        {
+          "id": "i38cfagx6",
+          "text": "Read/unread visual state on cards",
+          "completed": false
+        },
+        {
+          "id": "1qpz6mzzn",
+          "text": "Dialog and form styling",
+          "completed": false
+        },
+        {
+          "id": "jwi5ja6vg",
+          "text": "Check the responsive grid",
+          "completed": false
+        },
+        {
+          "id": "8ibppnero",
+          "text": "Test add / remove / toggle end to end",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "tqffr42lo",
+      "text": "(Optional) Persist library in localStorage",
+      "description": "Save the library between page reloads.",
+      "tags": [
+        "js",
+        "enhancement"
+      ],
+      "priority": "Could",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1793866451251,
+      "order": 10000,
+      "subtasks": [
+        {
+          "id": "3vc72e3x0",
+          "text": "Save to localStorage on every change",
+          "completed": false
+        },
+        {
+          "id": "0tl308es3",
+          "text": "Load on startup",
+          "completed": false
+        },
+        {
+          "id": "ujljo4izk",
+          "text": "Rebuild Book instances so toggleRead still works",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
