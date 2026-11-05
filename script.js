@@ -20,6 +20,11 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Shared by every Book through the prototype, not copied onto each instance.
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
 // Creates a Book from the given details and stores it in myLibrary.
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
@@ -74,7 +79,13 @@ function createBookCard(book) {
   removeButton.dataset.action = "remove";
   removeButton.textContent = "Remove";
 
-  actions.append(removeButton);
+  const toggleButton = document.createElement("button");
+  toggleButton.type = "button";
+  toggleButton.className = "btn btn-secondary";
+  toggleButton.dataset.action = "toggle-read";
+  toggleButton.textContent = book.read ? "Mark unread" : "Mark read";
+
+  actions.append(toggleButton, removeButton);
 
   card.append(title, author, pages, status, actions);
   return card;
@@ -128,6 +139,9 @@ libraryContainer.addEventListener("click", (event) => {
 
   if (button.dataset.action === "remove") {
     removeBookFromLibrary(id);
+  } else if (button.dataset.action === "toggle-read") {
+    const book = myLibrary.find((b) => b.id === id);
+    if (book) book.toggleRead();
   }
 
   displayBooks();

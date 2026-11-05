@@ -245,25 +245,25 @@
         "prototype"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451249,
       "order": 8000,
       "subtasks": [
         {
           "id": "s4rluvmrj",
           "text": "Book.prototype.toggleRead",
-          "completed": false
+          "completed": true
         },
         {
           "id": "1rahglqug",
           "text": "Toggle button on each card",
-          "completed": false
+          "completed": true
         },
         {
           "id": "276l3p2xg",
           "text": "Find the book by data-id, toggle it, re-render",
-          "completed": false
+          "completed": true
         }
       ]
     },

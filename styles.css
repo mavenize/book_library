@@ -119,6 +119,12 @@ main {
   background: var(--color-primary-hover);
 }
 
+.btn-secondary {
+  color: var(--color-primary);
+  background: transparent;
+  border-color: var(--color-primary);
+}
+
 .btn-danger {
   color: var(--color-danger);
   background: transparent;
