@@ -1,8 +1,9 @@
 // Book Library
-// The code is split into three sections:
+// The code is split into four sections:
 //   1. Data:    myLibrary array, Book constructor, add / remove (Tasks 2-3, 7-8)
-//   2. Display: displayBooks() renders cards from myLibrary (Task 4)
-//   3. Events:  New Book dialog, form submit, remove and toggle (Tasks 5-8)
+//   2. Storage: save / load myLibrary in localStorage (Task 10)
+//   3. Display: displayBooks() renders cards from myLibrary (Task 4)
+//   4. Events:  New Book dialog, form submit, remove and toggle (Tasks 5-8)
 
 // ---------- Data ----------
 
@@ -38,11 +39,46 @@ function removeBookFromLibrary(id) {
   if (index !== -1) myLibrary.splice(index, 1);
 }
 
-// Sample books so there is something to display during development.
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("Dune", "Frank Herbert", 412, false);
-addBookToLibrary("1984", "George Orwell", 328, true);
-addBookToLibrary("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
+// ---------- Storage ----------
+
+const STORAGE_KEY = "book-library";
+
+// Writes myLibrary to localStorage. JSON keeps only the own data fields.
+function saveLibrary() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(myLibrary));
+  } catch {
+    // Storage can be full or blocked (e.g. private mode); the app still works.
+  }
+}
+
+// Fills myLibrary from localStorage. Returns false if nothing usable was saved.
+function loadLibrary() {
+  let saved;
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  } catch {
+    return false;
+  }
+  if (!Array.isArray(saved)) return false;
+
+  for (const data of saved) {
+    // Rebuild a real Book so it gets toggleRead from the prototype,
+    // then keep the saved id so it stays stable across reloads.
+    const book = addBookToLibrary(data.title, data.author, data.pages, data.read);
+    book.id = data.id;
+  }
+  return true;
+}
+
+// Seed sample books on the very first visit only.
+if (!loadLibrary()) {
+  addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+  addBookToLibrary("Dune", "Frank Herbert", 412, false);
+  addBookToLibrary("1984", "George Orwell", 328, true);
+  addBookToLibrary("Eloquent JavaScript", "Marijn Haverbeke", 472, false);
+  saveLibrary();
+}
 
 // ---------- Display ----------
 
@@ -147,6 +183,7 @@ bookForm.addEventListener("submit", (event) => {
 
   addBookToLibrary(title, author, Number(formData.get("pages")), formData.get("read") === "on");
 
+  saveLibrary();
   displayBooks();
   bookDialog.close();
 });
@@ -170,5 +207,6 @@ libraryContainer.addEventListener("click", (event) => {
     if (book) book.toggleRead();
   }
 
+  saveLibrary();
   displayBooks();
 });

@@ -312,25 +312,25 @@
         "enhancement"
       ],
       "priority": "Could",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451251,
       "order": 10000,
       "subtasks": [
         {
           "id": "3vc72e3x0",
           "text": "Save to localStorage on every change",
-          "completed": false
+          "completed": true
         },
         {
           "id": "0tl308es3",
           "text": "Load on startup",
-          "completed": false
+          "completed": true
         },
         {
           "id": "ujljo4izk",
           "text": "Rebuild Book instances so toggleRead still works",
-          "completed": false
+          "completed": true
         }
       ]
     }
