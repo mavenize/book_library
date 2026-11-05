@@ -27,6 +27,12 @@ function addBookToLibrary(title, author, pages, read) {
   return book;
 }
 
+// Removes the book with the given id from myLibrary (no-op if not found).
+function removeBookFromLibrary(id) {
+  const index = myLibrary.findIndex((book) => book.id === id);
+  if (index !== -1) myLibrary.splice(index, 1);
+}
+
 // Sample books so there is something to display during development.
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
 addBookToLibrary("Dune", "Frank Herbert", 412, false);
@@ -59,7 +65,18 @@ function createBookCard(book) {
   status.className = `card-status ${book.read ? "is-read" : "is-unread"}`;
   status.textContent = book.read ? "Read" : "Not read yet";
 
-  card.append(title, author, pages, status);
+  const actions = document.createElement("div");
+  actions.className = "card-actions";
+
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "btn btn-danger";
+  removeButton.dataset.action = "remove";
+  removeButton.textContent = "Remove";
+
+  actions.append(removeButton);
+
+  card.append(title, author, pages, status, actions);
   return card;
 }
 
@@ -100,4 +117,18 @@ bookForm.addEventListener("submit", (event) => {
   displayBooks();
   bookForm.reset();
   bookDialog.close();
+});
+
+// One listener handles the buttons on every card (event delegation).
+libraryContainer.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-action]");
+  if (!button) return;
+
+  const { id } = button.closest(".card").dataset;
+
+  if (button.dataset.action === "remove") {
+    removeBookFromLibrary(id);
+  }
+
+  displayBooks();
 });

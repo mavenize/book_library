@@ -209,30 +209,30 @@
         "events"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451248,
       "order": 7000,
       "subtasks": [
         {
           "id": "wdzkmw7d6",
           "text": "Remove button on each card",
-          "completed": false
+          "completed": true
         },
         {
           "id": "41p2ti8a4",
           "text": "Delegated click listener on #library reads data-id",
-          "completed": false
+          "completed": true
         },
         {
           "id": "v32eswkxh",
           "text": "removeBookFromLibrary(id) using findIndex + splice",
-          "completed": false
+          "completed": true
         },
         {
           "id": "vqtsbtx0n",
           "text": "Re-render",
-          "completed": false
+          "completed": true
         }
       ]
     },
