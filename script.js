@@ -1,6 +1,6 @@
 // Book Library
 // The code is split into three sections:
-//   1. Data:    myLibrary array, Book constructor, addBookToLibrary (Tasks 2-3)
+//   1. Data:    myLibrary array, Book constructor, add / remove (Tasks 2-3, 7-8)
 //   2. Display: displayBooks() renders cards from myLibrary (Task 4)
 //   3. Events:  New Book dialog, form submit, remove and toggle (Tasks 5-8)
 
@@ -51,7 +51,7 @@ const libraryContainer = document.querySelector("#library");
 // Builds the card element for a single book. Reads data only; never mutates it.
 function createBookCard(book) {
   const card = document.createElement("article");
-  card.className = "card";
+  card.className = `card ${book.read ? "is-read" : "is-unread"}`;
   card.dataset.id = book.id; // links this element to its Book object
 
   const title = document.createElement("h2");
@@ -73,17 +73,18 @@ function createBookCard(book) {
   const actions = document.createElement("div");
   actions.className = "card-actions";
 
-  const removeButton = document.createElement("button");
-  removeButton.type = "button";
-  removeButton.className = "btn btn-danger";
-  removeButton.dataset.action = "remove";
-  removeButton.textContent = "Remove";
-
   const toggleButton = document.createElement("button");
   toggleButton.type = "button";
   toggleButton.className = "btn btn-secondary";
   toggleButton.dataset.action = "toggle-read";
   toggleButton.textContent = book.read ? "Mark unread" : "Mark read";
+
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.className = "btn btn-danger";
+  removeButton.dataset.action = "remove";
+  removeButton.textContent = "Remove";
+  removeButton.setAttribute("aria-label", `Remove ${book.title}`);
 
   actions.append(toggleButton, removeButton);
 
@@ -91,8 +92,20 @@ function createBookCard(book) {
   return card;
 }
 
+// Shown in place of the cards when the library is empty.
+function createEmptyState() {
+  const message = document.createElement("p");
+  message.className = "empty-state";
+  message.textContent = "Your library is empty. Click “+ New Book” to add one.";
+  return message;
+}
+
 // Re-renders the whole library from myLibrary.
 function displayBooks() {
+  if (myLibrary.length === 0) {
+    libraryContainer.replaceChildren(createEmptyState());
+    return;
+  }
   libraryContainer.replaceChildren(...myLibrary.map(createBookCard));
 }
 
@@ -110,24 +123,37 @@ newBookButton.addEventListener("click", () => {
 });
 
 cancelButton.addEventListener("click", () => {
-  bookForm.reset();
   bookDialog.close();
+});
+
+// Runs however the dialog closes (Cancel, submit, or the Escape key).
+bookDialog.addEventListener("close", () => {
+  bookForm.reset();
 });
 
 bookForm.addEventListener("submit", (event) => {
   event.preventDefault(); // stop the browser from sending the form to a server
 
   const formData = new FormData(bookForm);
-  addBookToLibrary(
-    formData.get("title").trim(),
-    formData.get("author").trim(),
-    Number(formData.get("pages")),
-    formData.get("read") === "on"
-  );
+  const title = formData.get("title").trim();
+  const author = formData.get("author").trim();
+
+  // `required` accepts whitespace-only input, so check the trimmed values too.
+  const titleInput = bookForm.elements.title;
+  const authorInput = bookForm.elements.author;
+  titleInput.setCustomValidity(title ? "" : "Please enter a title.");
+  authorInput.setCustomValidity(author ? "" : "Please enter an author.");
+  if (!bookForm.reportValidity()) return;
+
+  addBookToLibrary(title, author, Number(formData.get("pages")), formData.get("read") === "on");
 
   displayBooks();
-  bookForm.reset();
   bookDialog.close();
+});
+
+// Clear a custom error as soon as the user edits the field again.
+bookForm.addEventListener("input", (event) => {
+  event.target.setCustomValidity("");
 });
 
 // One listener handles the buttons on every card (event delegation).

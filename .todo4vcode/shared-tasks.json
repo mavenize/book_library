@@ -276,30 +276,30 @@
         "qa"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1793866451250,
       "order": 9000,
       "subtasks": [
         {
           "id": "i38cfagx6",
           "text": "Read/unread visual state on cards",
-          "completed": false
+          "completed": true
         },
         {
           "id": "1qpz6mzzn",
           "text": "Dialog and form styling",
-          "completed": false
+          "completed": true
         },
         {
           "id": "jwi5ja6vg",
           "text": "Check the responsive grid",
-          "completed": false
+          "completed": true
         },
         {
           "id": "8ibppnero",
           "text": "Test add / remove / toggle end to end",
-          "completed": false
+          "completed": true
         }
       ]
     },
